@@ -1,0 +1,73 @@
+.general {
+    background-color: rgb(23, 102, 249);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+   
+    .content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the content stretches to at least full viewport height
+   */
+    }
+   
+    .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px; /* Adjust margin as needed */
+    flex: 1; /* Takes remaining vertical space */
+    }
+   
+    .logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    max-height: 200px;
+    }
+   
+    mat-card {
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Maximum width */
+    margin-top: 20px; /* Adjust spacing */
+    }
+   
+   
+    .sub-title {
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 1px 0;
+    }
+   
+    .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(23, 102, 249);
+    color: #ffffff;
+    }
+   
+    @media (max-width: 600px) {
+    .logo {
+    max-height: 100px; /* Reducir el tamaño de la imagen en dispositivos móviles */
+    }
+    }
+   
+    .caja{
+    width: 100%;
+   
+    font-size: 14px;
+    height: 70px;
+   
+    }
+   
+    .caja mat-label{
+    font-size: 14px;
+    }
+    .boton{
+    width: 100%;
+    margin-bottom: 20px;
+    }
