@@ -90,10 +90,10 @@ mat-card {
 
 .caja mat-label {
     font-size: 14px;
-    width:  100%;
-    font-size: 14px;
-    height: 70px;
+    width: 100%;
+    color: #000;
 }
+
 
 /* Button Styling */
 .boton {
