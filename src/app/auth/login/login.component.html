@@ -24,10 +24,11 @@
                     Iniciar sesión
                   </button>
                 </form>
-                <p>¿No tiene una cuenta? <a>Regístrese</a></p>
-                <button mat-raised-button color="primary" type="submit" class="boton">
-                  Iniciar sesión
-                </button>
+                <p>¿No tienes cuenta? 
+                  <button (click)="navigateToRegister()">Crear cuenta</button>
+               </p>
+               
+                                    
               </mat-card-content>
             </mat-card>
           </div>

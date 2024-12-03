@@ -15,11 +15,11 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
-  resetPassword(email: string) {
-    return this.afAuth.sendPasswordResetEmail(email);
-  }
-
   logout() {
     return this.afAuth.signOut();
+  }
+
+  getCurrentUser() {
+    return this.afAuth.authState;
   }
 }
