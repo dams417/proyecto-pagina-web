@@ -1,28 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   standalone: true,
+  imports: [
+    ReactiveFormsModule,  // IMPORTANTE: necesario para [formGroup]
+    MatButtonModule,
+    MatCardModule,
+  ],
 })
-export class ProfileComponent {
-  user: any;
+export class ProfileComponent implements OnInit {
+  currentUser: any;
 
-  constructor(private router: Router) {
-    const userData = sessionStorage.getItem('loggedInUser');
-    if (userData) {
-      this.user = JSON.parse(userData);
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    const storedUser = localStorage.getItem('currentUser');
+    if (storedUser) {
+      this.currentUser = JSON.parse(storedUser);
     } else {
-      this.router.navigate(['/login']); // Redirect to login if not logged in
+      this.router.navigate(['/login']);
     }
   }
 
   logout() {
-    sessionStorage.removeItem('loggedInUser');
+    localStorage.removeItem('currentUser');
     this.router.navigate(['/login']);
   }
 }
+
+
+
 
 

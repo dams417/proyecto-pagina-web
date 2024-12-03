@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -21,7 +20,6 @@ interface User {
   styleUrls: ['./register.component.css'],
   standalone: true,
   imports: [
-    NgIf,
     CommonModule,
     ReactiveFormsModule,
     MatCardModule,
@@ -49,26 +47,26 @@ export class RegisterComponent {
   onRegister() {
     if (this.registerForm.valid) {
       const userData = this.registerForm.value;
-  
+
       // Obtener usuarios existentes
       const existingUsers: User[] = JSON.parse(localStorage.getItem('users') || '[]');
       const userExists = existingUsers.some((u: User) => u.email === userData.email);
-  
+
       if (userExists) {
         this.snackBar.open('Este correo ya está registrado', 'Cerrar', { duration: 3000 });
         return;
       }
-  
+
       // Guardar nuevo usuario
       existingUsers.push(userData);
       localStorage.setItem('users', JSON.stringify(existingUsers));
-  
+
       // Mostrar mensaje de éxito
       this.snackBar.open('Cuenta creada correctamente', 'Cerrar', { duration: 3000 });
-  
+
       // Limpiar formulario
       this.registerForm.reset();
-  
+
       // Redirigir a login después de un pequeño retraso
       setTimeout(() => {
         this.router.navigate(['/login']);
@@ -77,7 +75,8 @@ export class RegisterComponent {
       this.snackBar.open('Por favor, completa todos los campos correctamente', 'Cerrar', { duration: 3000 });
     }
   }
-  
+
   goToLogin() {
     this.router.navigate(['/login']);
-}}  
+  }
+}

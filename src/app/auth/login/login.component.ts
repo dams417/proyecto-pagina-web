@@ -47,24 +47,27 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
-      // Retrieve users from localStorage
+      // Recuperar usuarios almacenados
       const users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
       const user: User | undefined = users.find(u => u.email === email && u.password === password);
 
       if (user) {
-        // Store logged-in user info
+        // Guardar información del usuario actual
         localStorage.setItem('currentUser', JSON.stringify(user));
         
-        // Show success message
-        this.snackBar.open('Inicio de sesión exitoso', 'Cerrar', { duration: 3000 });
+        // Mostrar mensaje de éxito
+        this.snackBar.open('Inicio de sesión exitoso', 'Cerrar', { duration: 2000 });
 
-        // Navigate to profile after a short delay
+        // Navegar a profile después de la validación
         setTimeout(() => {
           this.router.navigate(['/profile']);
-        }, 3000);
+        }, 2000);
       } else {
+        // Mostrar error
         this.snackBar.open('Correo o contraseña incorrectos', 'Cerrar', { duration: 3000 });
       }
+    } else {
+      this.snackBar.open('Complete todos los campos correctamente.', 'Cerrar', { duration: 3000 });
     }
   }
 
@@ -73,9 +76,10 @@ export class LoginComponent {
   }
 
   recoverAccount() {
-    this.router.navigate(['/recover']); // Redirige a la página de recuperación
+    this.router.navigate(['/recover']);
   }
 }
+
 
 
 
