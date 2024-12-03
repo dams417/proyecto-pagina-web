@@ -1,0 +1,11 @@
+<div class="register-container">
+    <h2>Crear cuenta</h2>
+    <form="registerForm" (ngSubmit)="onSubmit()">
+      <label for="email">Correo:</label>
+      <input id="email" formControlName="email" type="email" required />
+      <label for="password">Contraseña:</label>
+      <input id="password" formControlName="password" type="password" required />
+      <button type="submit">Registrar</button>
+    </form>
+  </div>
+  
