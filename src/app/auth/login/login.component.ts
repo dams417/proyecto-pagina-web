@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Para trabajar con formularios reactivos
-import { MatCardModule } from '@angular/material/card'; // Para mat-card
-import { MatFormFieldModule } from '@angular/material/form-field'; // Para mat-form-field y mat-label
-import { MatInputModule } from '@angular/material/input'; // Para matInput
-import { MatButtonModule } from '@angular/material/button'; // Para mat-raised-button
-import { CommonModule } from '@angular/common'; // Para usar directivas comunes (ngIf, ngFor)
-import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar ReactiveFormsModule
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,14 @@ import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar 
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule // Agregar ReactiveFormsModule aquí
+    ReactiveFormsModule
   ]
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  loginError: string | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -32,10 +34,21 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
+    this.loginError = null; // Reinicia errores previos
     if (this.loginForm.valid) {
-      console.log('Form Submitted', this.loginForm.value);
+      const { email, password } = this.loginForm.value;
+
+      const isAuthenticated = this.authService.login(email, password);
+      if (isAuthenticated) {
+        console.log('Login successful');
+        // Redirige al usuario o muestra un mensaje de éxito
+      } else {
+        this.loginError = 'Credenciales inválidas. Intente de nuevo.';
+      }
     } else {
-      console.log('Form is invalid');
+      this.loginError = 'Por favor, complete todos los campos correctamente.';
     }
   }
 }
+
+
