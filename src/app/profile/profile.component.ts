@@ -1,21 +1,28 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  standalone: true,
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
+  standalone: true,
 })
 export class ProfileComponent {
-  profile = {
-    name: 'Juan Pérez',
-    carrera: 'Ingeniería en Sistemas',
-    ano: '2024',
-    foto: 'path/to/foto.jpg',
-  };
+  user: any;
 
-  onEditProfile() {
-    console.log('Editar perfil');
+  constructor(private router: Router) {
+    const userData = sessionStorage.getItem('loggedInUser');
+    if (userData) {
+      this.user = JSON.parse(userData);
+    } else {
+      this.router.navigate(['/login']); // Redirect to login if not logged in
+    }
+  }
+
+  logout() {
+    sessionStorage.removeItem('loggedInUser');
+    this.router.navigate(['/login']);
   }
 }
+
 

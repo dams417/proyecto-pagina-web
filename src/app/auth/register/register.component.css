@@ -6,12 +6,24 @@
     border-radius: 8px;
     background: #f9f9f9;
   }
-  button {
-    margin-top: 20px;
-    padding: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.boton {
+    width: 100%; /* Full width of the container */
+    padding: 10px 15px; /* Add some padding */
+    margin-top: 15px; /* Space above the button */
+    background-color: #3f51b5; /* Material design primary blue */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+  }
+  
+.boton:hover {
+    background-color: #303f9f; /* Darker shade on hover */
+  }
+  
+ .boton:disabled {
+    background-color: #c5c5c5; /* Gray when disabled */
+    cursor: not-allowed;
   }
   

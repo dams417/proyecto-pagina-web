@@ -1,41 +1,44 @@
 <body class="general">
-        <div class="content">
-          <div class="login-container">
-            <img src="https://png.pngtree.com/png-vector/20240705/ourlarge/pngtree-lovable-golden-snake-with-big-eyes-png-image_12947006.png" alt="Logo" class="logo" />
-            <!-- Formulario de inicio de sesión -->
-            <mat-label class="sub-title">Mi perfil personal</mat-label>
-            <mat-card class="form-container">
-              <mat-card-header>
-                <mat-card-title>Iniciar Sesión</mat-card-title>
-              </mat-card-header>
-              <mat-card-content class="cont">
-                <form>
-                  <mat-form-field appearance="fill" class="caja">
-                    <mat-label>Correo</mat-label>
-                    <input matInput formControlName="email" required />
-                  </mat-form-field>
-      
-                  <mat-form-field appearance="fill" class="caja">
-                    <mat-label>Contraseña</mat-label>
-                    <input matInput type="password" formControlName="password" required />
-                  </mat-form-field>
-      
-                  <button mat-raised-button color="primary" type="submit" class="boton">
-                    Iniciar sesión
-                  </button>
-                </form>
-                <p>¿No tienes cuenta? 
-                  <button (click)="navigateToRegister()">Crear cuenta</button>
-               </p>
-               
-                                    
-              </mat-card-content>
-            </mat-card>
-          </div>
-          <!-- Footer -->
-          <footer class="footer">
-            <p>&copy; 2024 Todos los derechos reservados.</p>
-            <p>Talavera - Andahuaylas - Perú.</p>
-          </footer>
-        </div>
+  <div class="content">
+    <div class="login-container">
+      <img src="https://png.pngtree.com/png-vector/20240705/ourlarge/pngtree-lovable-golden-snake-with-big-eyes-png-image_12947006.png" alt="Logo" class="logo" />
+      <mat-label class="sub-title">Mi perfil personal</mat-label>
+      <mat-card class="form-container">
+        <mat-card-header>
+          <mat-card-title>Iniciar Sesión</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="cont">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <mat-form-field appearance="fill" class="caja">
+              <mat-label>Correo</mat-label>
+              <input matInput formControlName="email" required />
+              <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                Ingrese un correo válido
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="caja">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" formControlName="password" required />
+              <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                La contraseña es obligatoria
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" class="boton">
+              Iniciar sesión
+            </button>
+          </form>
+          <p>¿No tienes cuenta?
+            <button (click)="navigateToRegister()">Crear cuenta</button>
+          </p>
+          <p>
+            <button (click)="recoverAccount()" class="recover-button">¿Olvidaste tu contraseña?</button>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2024 Todos los derechos reservados.</p>
+      <p>Talavera - Andahuaylas - Perú.</p>
+    </footer>
+  </div>
 </body>

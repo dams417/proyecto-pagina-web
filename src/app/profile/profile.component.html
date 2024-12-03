@@ -1,8 +1,13 @@
 <div class="profile-container">
-    <img [src]="profile.foto" alt="Foto de perfil" />
-    <h2>{{ profile.name }}</h2>
-    <p>{{ profile.carrera }}</p>
-    <p>{{ profile.ano }}</p>
-    <button (click)="onEditProfile()">Editar Perfil</button>
+    <header class="header">
+      <h1>Bienvenido, {{ user.firstName }} {{ user.lastName }}</h1>
+      <button mat-button color="primary" (click)="logout()">Cerrar sesión</button>
+    </header>
+    <div class="content">
+      <p>Este es tu repositorio personal.</p>
+      <button mat-raised-button color="accent">Crear Nuevo Archivo</button>
+      <button mat-raised-button color="warn">Eliminar Repositorio</button>
+    </div>
   </div>
+  
   
