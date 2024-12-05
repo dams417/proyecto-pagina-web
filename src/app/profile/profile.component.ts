@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { MatCardModule } from '@angular/material/card'; // Asegúrate de importar esto
+import { MatButtonModule } from '@angular/material/button'; // Para los botones
+import { MatLabel } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   standalone: true,
   imports: [
-    ReactiveFormsModule,  // IMPORTANTE: necesario para [formGroup]
-    MatButtonModule,
     MatCardModule,
-  ],
+    MatButtonModule,
+  ]
+  
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
@@ -34,9 +33,9 @@ export class ProfileComponent implements OnInit {
     localStorage.removeItem('currentUser');
     this.router.navigate(['/login']);
   }
+
+  // Método editProfile agregado
+  editProfile() {
+    this.router.navigate(['/profile/edit']); // Asegúrate de que la ruta está configurada correctamente
+  }
 }
-
-
-
-
-

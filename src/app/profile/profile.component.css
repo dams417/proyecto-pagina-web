@@ -1,18 +1,101 @@
-.profile-container {
-    padding: 20px;
-  }
-  
-  .header {
+/* Estilos generales para el componente */
+:host {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    padding: 16px;
+    background-color: #f9f9f9; /* Fondo suave */
   }
   
-  .content {
-    margin-top: 20px;
+  /* Estilo para las tarjetas (mat-card) */
+  mat-card {
+    width: 100%;
+    max-width: 800px;
+    margin: 16px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
   }
   
-  button {
-    margin: 10px;
+  /* Títulos de tarjetas */
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
   }
+  
+  /* Contenido del perfil */
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espaciado entre elementos */
+  }
+  
+  /* Campo de foto de perfil */
+  .profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .profile-picture label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .profile-picture img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+  }
+  
+  /* Botones de acción */
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+  
+  button[mat-raised-button] {
+    font-weight: bold;
+    text-transform: none; /* No texto en mayúsculas */
+  }
+  
+  /* Sección de publicaciones */
+  textarea[matInput] {
+    min-height: 80px;
+    resize: none;
+  }
+  
+  mat-card-content input[type='file'] {
+    margin-top: 8px;
+  }
+  
+  
+  mat-card-content img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-top: 8px;
+    border-radius: 4px;
+  }
+  
+  /* Botones dentro del feed */
+  mat-card-actions button[mat-button] {
+    color: #1976d2;
+    font-weight: bold;
+  }
+  
+  /* Fondo global */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #eef2f7; /* Fondo suave */
+    margin: 0;
+    padding: 0;
+  }
+  
   

@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./recover.component.css'],
   standalone: true,
   imports: [
+    NgIf,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatButtonModule,
