@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PostService {
   private posts = JSON.parse(localStorage.getItem('posts') || '[]');
@@ -15,3 +15,4 @@ export class PostService {
     localStorage.setItem('posts', JSON.stringify(this.posts));
   }
 }
+

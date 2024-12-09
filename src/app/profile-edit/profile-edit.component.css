@@ -1,0 +1,19 @@
+.profile-edit-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+    text-align: center;
+  }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { NgFor } from '@angular/common';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-post-feed',
@@ -9,6 +11,7 @@ import { NgFor } from '@angular/common';
   standalone: true,
   imports:[
     NgFor,
+    DatePipe,
 
   ]
 })
@@ -29,9 +32,7 @@ export class PostFeedComponent implements OnInit {
     const newPost = {
       title: 'Nueva publicación',
       content: 'Contenido de prueba',
-      timestamp: new Date(),
+      timestamp: new Date(), // Esto ya es una fecha válida
     };
-    this.postService.addPost(newPost);
-    this.loadPosts(); // Recargar publicaciones
   }
 }

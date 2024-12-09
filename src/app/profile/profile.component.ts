@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatCardModule } from '@angular/material/card'; // Asegúrate de importar esto
-import { MatButtonModule } from '@angular/material/button'; // Para los botones
-import { MatLabel } from '@angular/material/form-field';
-import { MatFormField } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -12,8 +12,8 @@ import { MatFormField } from '@angular/material/form-field';
   imports: [
     MatCardModule,
     MatButtonModule,
+    CommonModule
   ]
-  
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
@@ -34,8 +34,7 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  // Método editProfile agregado
   editProfile() {
-    this.router.navigate(['/profile/edit']); // Asegúrate de que la ruta está configurada correctamente
+    this.router.navigate(['/profile-edit']);
   }
 }
