@@ -45,14 +45,14 @@
           </mat-form-field>
   
           <mat-form-field>
-            <mat-label>Año Académico</mat-label>
+            <mat-label>ciclo Académico</mat-label>
             <mat-select formControlName="academicYear" required>
               <mat-option *ngFor="let year of academicYears" [value]="year">
                 {{ year }}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="profileForm.get('academicYear')?.invalid && profileForm.get('academicYear')?.touched">
-              Seleccione un año académico
+              Seleccione un ciclo académico
             </mat-error>
           </mat-form-field>
   

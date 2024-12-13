@@ -27,9 +27,9 @@ export class ProfileEditComponent implements OnInit {
   profileForm: FormGroup;
 
   careers = [
-    'Ingeniería de Software',
-    'Ciencias de Datos',
-    'Sistemas'
+    'Ingeniería civil',
+    'enfermeria',
+    'ingenieria de Sistemas'
   ];
 
   academicYears = [

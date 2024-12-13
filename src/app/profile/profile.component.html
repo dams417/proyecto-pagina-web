@@ -1,6 +1,11 @@
 <mat-card>
-  <mat-card-title>Perfil</mat-card-title>
+  <div class="profile-image-wrapper">
+    <!-- Imagen de Open Graph (og:image) -->
+    <img src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg" alt="Imagen de Perfil Externa">
+  </div>
+
   <mat-card-content>
+    <mat-card-title>Perfil</mat-card-title>
     <p>Hola, <strong>{{ currentUser?.firstName }} {{ currentUser?.lastName }}</strong>!</p>
     <p>Correo: {{ currentUser?.email }}</p>
     
@@ -23,6 +28,7 @@
     <button mat-raised-button color="warn" (click)="logout()">Cerrar Sesión</button>
   </mat-card-actions>
 </mat-card>
+
   
   
   
