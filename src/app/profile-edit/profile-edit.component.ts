@@ -29,15 +29,22 @@ export class ProfileEditComponent implements OnInit {
   careers = [
     'Ingeniería civil',
     'enfermeria',
-    'ingenieria de Sistemas'
+    'ingenieria de Sistemas',
+    'ingenieria ambiental',
+    'ingenieria agroindustrial',
   ];
 
   academicYears = [
-    'Primer Año',
-    'Segundo Año',
-    'Tercer Año',
-    'Cuarto Año',
-    'Quinto Año'
+    'primer ciclo',
+    'segundo ciclo',
+    'tercer ciclo',
+    'cuarto ciclo',
+    'Quinto ciclo',
+    'sexto ciclo',
+    'septimo ciclo',
+    'octavo ciclo',
+    'noveno ciclo',
+    'decimo ciclo'
   ];
 
   constructor(
