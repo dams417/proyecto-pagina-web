@@ -4,6 +4,15 @@ html, body {
     padding: 0;
     height: 100%;
 }
+body {
+    background-image: url('https://radiotitanka.pe/content/img_noticia/084023_unajma-aaa.jpg');
+    background-size: cover; /* Hace que la imagen cubra toda el área */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Hace que la imagen se quede fija mientras se hace scroll */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    margin: 0; /* Elimina el margen por defecto del body */
+    font-family: Arial, sans-serif; /* Define una fuente para la página */
+  }
 
 .general {
     background-color: rgb(23, 102, 249);
@@ -123,7 +132,7 @@ p {
 }
 
 a {
-    color: #007bff;
+    color: #7697ba;
     text-decoration: none;
 }
 

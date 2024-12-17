@@ -29,8 +29,64 @@
   </mat-card-actions>
 </mat-card>
 
+<!-- Nuevo contenedor para crear una publicación -->
+<mat-card class="post-container">
+  <mat-card-header>
+    <mat-card-title>Crear Publicación</mat-card-title>
+  </mat-card-header>
   
+  <mat-card-content>
+    <!-- Campo de comentario -->
+    <mat-form-field appearance="fill" class="caja">
+      <mat-label>Comentario</mat-label>
+      <textarea matInput [(ngModel)]="newPost.comment" rows="4" placeholder="Escribe algo..."></textarea>
+    </mat-form-field>
+    
+    <!-- Subir imagen o video -->
+    <mat-form-field appearance="fill" class="caja">
+      <mat-label>Subir una imagen o video</mat-label>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*,video/*" />
+    </mat-form-field>
+    
+    <!-- Previsualización de la imagen o video -->
+    <div *ngIf="previewUrl">
+      <div *ngIf="fileType === 'image'" class="image-preview">
+        <img [src]="previewUrl" alt="Previsualización de imagen" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+      
+      <div *ngIf="fileType === 'video'" class="video-preview">
+        <video [src]="previewUrl" controls style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+      </div>
+    </div>
+  </mat-card-content>
   
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="postComment()">Publicar</button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Sección de publicaciones existentes -->
+<mat-card *ngFor="let post of posts" class="post-item">
+  <mat-card-content>
+    <!-- Mostrar comentario si existe -->
+    <p *ngIf="post.comment">{{ post.comment }}</p>
+    
+    <!-- Mostrar media si existe -->
+    <div *ngIf="post.media.previewUrl">
+      <div *ngIf="post.media.type === 'image'" class="image-preview">
+        <img [src]="post.media.previewUrl" alt="Imagen publicada" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+      
+      <div *ngIf="post.media.type === 'video'" class="video-preview">
+        <video [src]="post.media.previewUrl" controls style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+      </div>
+    </div>
+    
+    <!-- Información adicional de la publicación -->
+    <small>{{ post.timestamp | date:'medium' }}</small>
+  </mat-card-content>
   
-  
-  
+  <mat-card-actions>
+    <button mat-raised-button color="warn" (click)="deletePost(post.id)">Eliminar</button>
+  </mat-card-actions>
+</mat-card>
